@@ -1,0 +1,169 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Color Variables */
+:root {
+    --primary-color: #001F3F; /* Dark Blue */
+    --secondary-color: #FFD700; /* Gold */
+    --text-light: #ffffff;
+    --text-dark: #222222;
+    --background-light: #f8f9fa;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--primary-color);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 85vh;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right, #001F3F, #003366);
+    color: var(--text-light);
+    box-shadow: inset 0px 0px 50px rgba(255, 215, 0, 0.2);
+}
+
+/* Hero Banner */
+.hero-banner {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Hero Heading */
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.7);
+}
+
+/* Hero Paragraph */
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    margin-top: 15px;
+    border: 2px solid var(--secondary-color);
+}
+
+/* CTA Button Hover */
+.cta-button:hover {
+    background: #e6c300;
+    transform: scale(1.05);
+}
+
+/* Course Overview Section */
+.course-overview,
+.pricing {
+    text-align: center;
+    background: var(--background-light);
+    color: var(--text-dark);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 12px var(--shadow-color);
+}
+
+/* Section Header */
+.course-overview h2,
+.pricing h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Course List */
+.course-overview ul {
+    list-style: none;
+    padding: 0;
+}
+
+.course-overview li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding: 8px;
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Pricing Text */
+.pricing p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        height: 75vh;
+    }
+
+    .course-overview,
+    .pricing {
+        max-width: 95%;
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        font-size: 1.1rem;
+        padding: 10px 16px;
+    }
+
+    .course-overview h2,
+    .pricing h2 {
+        font-size: 1.8rem;
+    }
+
+    .course-overview li {
+        font-size: 1.1rem;
+    }
+}
