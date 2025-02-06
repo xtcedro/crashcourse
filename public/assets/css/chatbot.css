@@ -29,20 +29,6 @@ body {
     height: 100vh;
 }
 
-/* Hero Section */
-.hero {
-    padding: 2rem 1rem;
-    text-align: center;
-    background: linear-gradient(to right, #001F3F, #003366);
-    color: var(--text-light);
-    width: 100%;
-}
-
-.hero h1 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.7);
-}
 
 /* Chat Container */
 .chat-container {
