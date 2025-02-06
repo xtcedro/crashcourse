@@ -1,0 +1,59 @@
+/* Footer Styling */
+footer {
+    background: linear-gradient(to right, #001F3F, #003366); /* Dark Blue Gradient */
+    color: #FFD700; /* Gold Text */
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 1rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Content */
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Footer Text */
+.footer-content p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Legal Links */
+.legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Legal Links Styling */
+.legal-links a {
+    color: #FFD700; /* Gold */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.legal-links a:hover {
+    color: #FFF;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+    }
+
+    .legal-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
