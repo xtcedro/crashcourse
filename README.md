@@ -24,15 +24,18 @@ The project is organized to ensure modularity, clarity, and ease of maintenance.
 
 4. **`home/`**  
    - Homepage and main landing content.
-
-5. **`legal/`**  
+     
+5. **`chatbot/`**  
+   - Chatbot powered by Google's Gemini AI.
+     
+6. **`legal/`**  
    - Includes legal documents such as:  
      - **Accessibility Policy:** `accessibility.html`  
      - **Cookies Policy:** `cookies.html`  
      - **Privacy Policy:** `privacy.html`  
      - **Terms and Conditions:** `terms.html`  
 
-6. **`services/`**  
+7. **`services/`**  
    - Overview of provided services, including pricing and features.
 
 7. **`assets/`**  
