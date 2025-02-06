@@ -28,15 +28,14 @@ async function fetchAppointments() {
             const appointmentCard = document.createElement('div');
             appointmentCard.className = 'appointment-card';
 
-            const formattedDate = new Date(appointment.appointment_date).toLocaleDateString();
-            const formattedTime = appointment.appointment_time || 'Not specified';
+            // Format the created_at timestamp
+            const formattedDate = new Date(appointment.created_at).toLocaleString();
 
             appointmentCard.innerHTML = `
                 <h3>👤 ${appointment.name}</h3>
                 <p><strong>📧 Email:</strong> ${appointment.email}</p>
                 <p><strong>📞 Phone:</strong> ${appointment.phone}</p>
-                <p><strong>📅 Date:</strong> ${formattedDate}</p>
-                <p><strong>⏰ Time:</strong> ${formattedTime}</p>
+                <p><strong>📅 Booked On:</strong> ${formattedDate}</p>
                 <p><strong>🛠️ Service:</strong> ${appointment.service || 'Service not specified.'}</p>
                 <p><strong>💬 Details:</strong> ${appointment.message || 'No additional details provided.'}</p>
             `;
