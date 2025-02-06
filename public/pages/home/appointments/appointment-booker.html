@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserve your seat for the AI & Web Dev Crash Course - Limited to 20 participants!">
+  <title>Book Your Spot - AI & Web Dev Crash Course</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/script.js"></script>
+  <script defer src="assets/js/appointments.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar"></nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Appointment Booker Section -->
+    <section class="appointment-booker">
+      <h2>📅 Secure Your Spot - Limited to 20 Seats! 📅</h2>
+      <p>
+        🚀 **Join the AI & Web Development Crash Course!** Learn how to use AI, set up websites, and automate your business **in just 1.5 hours**.
+      </p>
+      <p class="urgent">⚠️ Only <b>20 seats available</b>! Secure your spot before they're gone! ⚠️</p>
+      <form id="appointmentForm" action="/submit-appointment" method="POST" class="appointment-form">
+
+        <div class="form-group">
+          <label for="name">👤 Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">📞 Your Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">📧 Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">🎟️ Choose Your Booking</label>
+          <select id="service" name="service" required>
+            <option value="crash-course">📚 AI & Web Dev Crash Course ($99)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">📝 Any Questions?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Ask any questions about the course here!" required></textarea>
+        </div>
+
+        <!-- Response Message Display -->
+        <div id="responseMessage" class="response-message" style="display: none;"></div>
+
+        <button type="submit" class="btn">🔥 Reserve Your Spot Now 🔥</button>
+      </form>
+    </section>
+
+    <a href="public-appointments.html" class="btn view-appointments">👀 View All Reserved Spots</a>
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer"></footer>
+
+</body>
+</html>
