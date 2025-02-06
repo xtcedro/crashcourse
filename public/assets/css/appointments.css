@@ -1,0 +1,149 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Color Variables */
+:root {
+    --primary-color: #00274D; /* Dark Blue */
+    --secondary-color: #FFD700; /* Gold */
+    --text-light: #ffffff;
+    --text-dark: #222222;
+    --background-light: #f8f9fa; /* Light gray */
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+    --loading-color: #FFD700; /* Loading text color */
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+}
+
+/* Appointments List Section */
+.appointments-list {
+    text-align: center;
+    background: var(--background-light);
+    color: var(--text-dark);
+    padding: 3rem 1rem;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Header */
+.appointments-list h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Appointments Container */
+#appointments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Appointment Card */
+.appointment-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--secondary-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Hover Effect for Cards */
+.appointment-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Appointment Details */
+.appointment-card h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.appointment-card p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 5px 0;
+}
+
+/* Loading Message Animation */
+.loading-message {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--loading-color);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Center Button */
+.center-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Back to Booking Button */
+.back-btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+/* Hover Effect for Button */
+.back-btn:hover {
+    background: #e6c300; /* Slightly darker gold */
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .appointments-list {
+        max-width: 90%;
+        padding: 3rem 1rem;
+    }
+
+    .loading-message {
+        font-size: 1rem;
+    }
+
+    .appointment-card {
+        padding: 15px;
+    }
+}
