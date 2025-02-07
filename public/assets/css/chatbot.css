@@ -158,24 +158,35 @@ input::placeholder {
     color: var(--border-color);
 }
 
-/* Send Button */
-button {
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    font-size: 1rem;
-    padding: 14px 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
+
+
+/* Development Notice - Professional & Elegant */
+.development-notice {
+    text-align: center;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.25), rgba(255, 215, 0, 0.15));
+    color: var(--secondary-color);
+    padding: 18px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 25px auto;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-left: 6px solid var(--secondary-color);
+    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.3);
+    animation: fadeInSlide 1s ease-in-out;
 }
 
-button:hover {
-    background: #e6c300;
-    transform: scale(1.05);
+/* Smooth Fade-in & Slide Animation */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
 
 /* Feedback Section */
 .feedback {
