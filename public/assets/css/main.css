@@ -11,14 +11,7 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-/* General Page Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--primary-color);
-    color: var(--text-light);
-    margin: 0;
-    padding: 0;
-}
+
 
 /* Hero Section */
 .hero {
