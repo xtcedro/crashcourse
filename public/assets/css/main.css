@@ -11,6 +11,17 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--primary-color);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensures full viewport height */
+    display: flex;
+    flex-direction: column;
+}
 
 
 /* Hero Section */
