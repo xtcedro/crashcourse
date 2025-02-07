@@ -21,7 +21,7 @@ export function setupNavigation() {
                     <li><a href="contact.html">📬 Contact</a></li>
                 </ul>
                 <div class="cta-container">
-                    <a href="register.html" class="cta-button">🚀 Reserve Your Spot</a>
+                    <a href="appointment-booker.html" class="cta-button">🚀 Reserve Your Spot</a>
                 </div>
             </div>
             <div class="overlay hidden" id="menu-overlay"></div>
