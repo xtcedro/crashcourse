@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = userInput.value.trim();
         if (!message) return;
 
-        // Append user message
         appendMessage("user", "You", message);
         userInput.value = "";
 
@@ -23,39 +22,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ message }),
             });
 
-            if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+            if (!response.ok) throw new Error("Failed to fetch response");
 
-            // Handle streaming response
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
-            let botReply = "";
+            let botMessage = "";
 
-            const botMessageElement = appendMessage("bot", "Gemini ✨", "⌛ Generating response...");
+            appendMessage("bot", "Gemini ✨", ""); // Create empty bot message
 
             while (true) {
                 const { value, done } = await reader.read();
                 if (done) break;
-                botReply += decoder.decode(value, { stream: true });
-                botMessageElement.innerHTML = `<b>Gemini ✨:</b> ${botReply}`;
-            }
 
-            if (!botReply.trim()) {
-                botMessageElement.innerHTML = `<b>Gemini ✨:</b> ⚠️ No response received.`;
+                const textChunk = decoder.decode(value, { stream: true });
+                botMessage += textChunk;
+
+                updateLastMessage("bot", botMessage); // Stream update
             }
         } catch (error) {
-            console.error("Error fetching AI response:", error);
-            appendMessage("error", "Error", "⚠️ AI service is unavailable.");
+            console.error("Streaming error:", error);
+            appendMessage("error", "Error", "⚠️ AI service unavailable.");
         }
     }
 
     function appendMessage(type, sender, message) {
         const messageElement = document.createElement("div");
         messageElement.className = `${type}-message`;
-        messageElement.innerHTML = `<b>${sender}:</b> ${message}`;
-
+        messageElement.innerHTML = `<b>${sender}:</b> <span class="message-content">${message}</span>`;
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
+    }
 
-        return messageElement; // Return reference for updating the bot message
+    function updateLastMessage(type, newText) {
+        const lastMessage = chatBox.querySelector(`.${type}-message .message-content`);
+        if (lastMessage) {
+            lastMessage.textContent = newText; // Update message dynamically
+        }
     }
 });
