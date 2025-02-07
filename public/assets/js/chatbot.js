@@ -17,23 +17,27 @@ document.addEventListener("DOMContentLoaded", () => {
         userInput.value = "";
 
         try {
-            const response = await fetch("/api/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message }),
-            });
+            // Open a streaming connection
+            const eventSource = new EventSource("/api/chat");
 
-            const data = await response.json();
-            const formattedReply = renderMarkdown(data.reply); // Convert Markdown
+            let botMessage = "";
+            appendMessage("bot", "Gemini ✨", ""); // Empty message placeholder
 
-            // Append bot response
-            appendMessage("bot", "Gemini ✨", formattedReply);
+            eventSource.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                botMessage += data.text; // Append received chunks
+                updateLastMessage("bot", botMessage);
+            };
+
+            eventSource.onerror = () => {
+                eventSource.close();
+                console.error("Streaming error");
+            };
         } catch (error) {
             appendMessage("error", "Error", "AI service is unavailable.");
         }
     }
 
-    // Function to append messages dynamically
     function appendMessage(type, sender, message) {
         const messageHTML = `
             <div class="${type}-message">
@@ -42,28 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
         chatBox.innerHTML += messageHTML;
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Convert Markdown to HTML (Enhanced Support)
-    function renderMarkdown(text) {
-        return text
-            .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>") // Bold **text**
-            .replace(/\*(.*?)\*/g, "<i>$1</i>") // Italic *text*
-            .replace(/__(.*?)__/g, "<b>$1</b>") // Bold (Alt) __text__
-            .replace(/_(.*?)_/g, "<i>$1</i>") // Italic (Alt) _text_
-            .replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-                return `<pre><code class="${lang || ''}">${escapeHTML(code.trim())}</code></pre>`;
-            }) // Multi-line Code Blocks
-            .replace(/`([^`]+)`/g, "<code>$1</code>") // Inline Code `text`
-            .replace(/\n/g, "<br>"); // Line breaks
-    }
-
-    // Function to prevent HTML injection in code blocks
-    function escapeHTML(text) {
-        return text.replace(/[&<>"']/g, (char) => {
-            const entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
-            return entities[char] || char;
-        });
+    function updateLastMessage(type, message) {
+        const lastMessage = document.querySelector(`.${type}-message:last-child .${type}-text`);
+        if (lastMessage) {
+            lastMessage.innerHTML = message;
+        }
     }
 });
