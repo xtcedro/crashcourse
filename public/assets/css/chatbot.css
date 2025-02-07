@@ -176,18 +176,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Development Notice */
-.development-notice {
-    text-align: center;
-    background: rgba(255, 215, 0, 0.2);
-    color: var(--secondary-color);
-    padding: 15px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 20px auto;
-    font-size: 1rem;
-    font-weight: 500;
-}
 
 /* Feedback Section */
 .feedback {
