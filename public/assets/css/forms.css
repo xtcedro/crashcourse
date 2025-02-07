@@ -10,6 +10,7 @@
     --background-light: #F8F9FA;
     --input-bg: #1F2937;
     --border-color: #FFD700;
+    --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
 /* Appointment Booker Section */
@@ -18,38 +19,43 @@
     color: var(--text-dark);
     max-width: 600px;
     margin: 50px auto;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 8px 18px var(--shadow-color);
     text-align: center;
-    border-left: 5px solid var(--secondary-color);
+    border-left: 6px solid var(--secondary-color);
+    animation: fadeInUp 1s ease-in-out;
 }
 
 /* Section Header */
 .appointment-booker h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     text-transform: uppercase;
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 /* Urgency Message */
 .urgent {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
     font-weight: bold;
     background: rgba(255, 215, 0, 0.2);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid var(--secondary-color);
+    text-transform: uppercase;
 }
 
 /* Form Styling */
 .appointment-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
+    margin-top: 15px;
 }
 
 /* Form Groups */
@@ -62,77 +68,99 @@
 /* Labels */
 .form-group label {
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: var(--primary-color);
+    font-size: 1rem;
 }
 
 /* Input Fields */
 input, select, textarea {
-    padding: 12px;
+    padding: 14px;
     border: 2px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     background: #ffffff;
     color: var(--text-dark);
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0px 2px 5px var(--shadow-color);
 }
 
 /* Input Focus Effect */
 input:focus, select:focus, textarea:focus {
     border-color: var(--secondary-color);
     outline: none;
-    box-shadow: 0px 0px 6px var(--secondary-color);
+    box-shadow: 0px 0px 8px var(--secondary-color);
 }
 
 /* Textarea */
 textarea {
     resize: none;
+    min-height: 120px;
 }
 
 /* Response Message */
 .response-message {
-    padding: 10px;
+    padding: 12px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 6px;
     display: none;
+    text-align: center;
 }
 
 /* Buttons */
 .btn {
     background: var(--secondary-color);
     color: var(--primary-color);
-    font-size: 1.2rem;
-    padding: 14px;
+    font-size: 1.3rem;
+    padding: 16px;
     text-decoration: none;
     font-weight: bold;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, background 0.3s;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
 }
 
 /* Hover Effect */
 .btn:hover {
     background: #e6c300;
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0px 6px 18px rgba(255, 215, 0, 0.5);
 }
 
 /* View Appointments Button */
 .view-appointments {
     display: block;
     text-align: center;
-    margin: 20px auto;
+    margin: 25px auto;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .appointment-booker {
         max-width: 90%;
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     .btn {
-        font-size: 1rem;
-        padding: 12px;
+        font-size: 1.2rem;
+        padding: 14px;
     }
 }
