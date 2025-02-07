@@ -130,33 +130,6 @@
     opacity: 0.8;
 }
 
-/* Input Section */
-.input-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 14px;
-    background: var(--input-bg);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-
-/* Input Field */
-input {
-    flex: 1;
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    background: transparent;
-    color: var(--text-light);
-    outline: none;
-}
-
-/* Placeholder Color */
-input::placeholder {
-    color: var(--border-color);
-}
 
 
 
@@ -216,6 +189,34 @@ input::placeholder {
     background: #e6c300;
     color: var(--primary-color);
     transform: scale(1.05);
+}
+
+/* Send Button - Modern & Professional */
+button {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ffcc00 100%);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    padding: 16px 22px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* Hover & Active Effects */
+button:hover {
+    background: linear-gradient(135deg, #e6c300 0%, #ffdb4d 100%);
+    transform: scale(1.08);
+    box-shadow: 0px 6px 14px rgba(255, 215, 0, 0.5);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 3px 8px rgba(255, 215, 0, 0.4);
 }
 
 /* Animations */
