@@ -23,35 +23,35 @@ body {
     flex-direction: column;
 }
 
- /* Hero Section */  
-.hero {  
-    position: relative;  
-    height: 100vh;  
-    padding: 7rem 1rem 3rem; /* Increased top padding to push content down */  
-    display: flex;  
-    flex-direction: column;  
-    align-items: center;  
-    justify-content: center;  
-    text-align: center;  
-    background: linear-gradient(to right, #001F3F, #003366);  
-    color: var(--text-light);  
-    box-shadow: inset 0px 0px 50px rgba(255, 215, 0, 0.2);  
-}  
-  
-/* Hero Heading */  
-.hero h1 {  
-    font-size: 4rem;  
-    font-weight: 700;  
-    color: var(--secondary-color);  
-    text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.7);  
-}  
-  
-/* Hero Paragraph */  
-.hero p {  
-    font-size: 2rem;  
-    max-width: 600px;  
-    margin: 10px auto;  
-}  
+ /* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    padding: 7rem 1rem 3rem; /* Increased top padding to push content down */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right, #001F3F, #003366);
+    color: var(--text-light);
+    box-shadow: inset 0px 0px 50px rgba(255, 215, 0, 0.2);
+}
+
+/* Hero Heading */
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.7);
+}
+
+/* Hero Paragraph */
+.hero p {
+    font-size: 2rem;
+    max-width: 600px;
+    margin: 10px auto;
+}
 
 
 /* Hero Banner */
@@ -188,7 +188,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    padding: 6rem 1rem; /* Added extra padding to prevent navbar overlap */
+    padding: 3rem 1rem; /* Added extra padding to prevent navbar overlap */
     display: flex;
     flex-direction: column;
     align-items: center;
