@@ -17,42 +17,45 @@ document.addEventListener("DOMContentLoaded", () => {
         userInput.value = "";
 
         try {
-            // Open a streaming connection
-            const eventSource = new EventSource("/api/chat");
+            const response = await fetch("/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message }),
+            });
 
-            let botMessage = "";
-            appendMessage("bot", "Gemini ✨", ""); // Empty message placeholder
+            if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 
-            eventSource.onmessage = (event) => {
-                const data = JSON.parse(event.data);
-                botMessage += data.text; // Append received chunks
-                updateLastMessage("bot", botMessage);
-            };
+            // Handle streaming response
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let botReply = "";
 
-            eventSource.onerror = () => {
-                eventSource.close();
-                console.error("Streaming error");
-            };
+            const botMessageElement = appendMessage("bot", "Gemini ✨", "⌛ Generating response...");
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                botReply += decoder.decode(value, { stream: true });
+                botMessageElement.innerHTML = `<b>Gemini ✨:</b> ${botReply}`;
+            }
+
+            if (!botReply.trim()) {
+                botMessageElement.innerHTML = `<b>Gemini ✨:</b> ⚠️ No response received.`;
+            }
         } catch (error) {
-            appendMessage("error", "Error", "AI service is unavailable.");
+            console.error("Error fetching AI response:", error);
+            appendMessage("error", "Error", "⚠️ AI service is unavailable.");
         }
     }
 
     function appendMessage(type, sender, message) {
-        const messageHTML = `
-            <div class="${type}-message">
-                <span class="${type}-label">${sender}:</span>
-                <div class="${type}-text">${message}</div>
-            </div>
-        `;
-        chatBox.innerHTML += messageHTML;
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
+        const messageElement = document.createElement("div");
+        messageElement.className = `${type}-message`;
+        messageElement.innerHTML = `<b>${sender}:</b> ${message}`;
 
-    function updateLastMessage(type, message) {
-        const lastMessage = document.querySelector(`.${type}-message:last-child .${type}-text`);
-        if (lastMessage) {
-            lastMessage.innerHTML = message;
-        }
+        chatBox.appendChild(messageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        return messageElement; // Return reference for updating the bot message
     }
 });
