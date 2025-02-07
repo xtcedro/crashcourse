@@ -54,14 +54,25 @@ body {
 }  
 
 
-
 /* Hero Banner */
 .hero-banner {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
+
+    /* Fade-up animation */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
+/* When the banner becomes visible */
+.hero-banner.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
 
 /* CTA Button */
 .cta-button {
