@@ -219,6 +219,56 @@ button:active {
     box-shadow: 0px 3px 8px rgba(255, 215, 0, 0.4);
 }
 
+/* Input Section - Sleek & Modern */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--input-bg) 0%, #2c3e50 100%);
+    border-radius: 14px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.input-container:hover {
+    box-shadow: 0px 6px 12px rgba(255, 215, 0, 0.4);
+}
+
+/* Input Field - Smooth & Elegant */
+input {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background: transparent;
+    color: var(--text-light);
+    outline: none;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Placeholder Styling - Subtle Elegance */
+input::placeholder {
+    color: rgba(255, 215, 0, 0.7);
+    font-style: italic;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Placeholder Fade Effect */
+input:focus::placeholder {
+    opacity: 0.5;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
