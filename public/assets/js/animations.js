@@ -12,3 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fadeElements.forEach(el => observer.observe(el));
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const heroBanner = document.querySelector(".hero-banner");
+
+    if (heroBanner) {
+        heroBanner.classList.add("visible");
+    }
+});
