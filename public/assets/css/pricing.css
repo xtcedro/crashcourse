@@ -10,6 +10,7 @@
     --table-header-bg: #001f3f;
     --table-row-light: #f8f9fa;
     --table-row-dark: #e2e3e5;
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Fade-in Animation */
@@ -29,18 +30,22 @@
     text-align: center;
     background: var(--table-row-light);
     color: var(--text-dark);
-    padding: 4rem 1rem;
-    border-radius: 10px;
-    max-width: 900px;
-    margin: 40px auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    max-width: 950px;
+    margin: 50px auto;
+    box-shadow: 0px 6px 18px var(--shadow-color);
+    animation: fadeInUp 1s ease-in-out;
 }
 
 /* Section Header */
 .pricing-comparison h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 /* Pricing Table */
@@ -54,19 +59,21 @@
 .pricing-table thead {
     background-color: var(--table-header-bg);
     color: var(--text-light);
+    text-transform: uppercase;
 }
 
 .pricing-table th {
-    padding: 15px;
-    font-size: 1.2rem;
+    padding: 18px;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 /* Table Rows */
 .pricing-table td {
-    padding: 12px;
+    padding: 14px;
     border-bottom: 1px solid #ccc;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 /* Alternating Row Colors */
@@ -86,7 +93,9 @@
 .pricing-table tbody tr:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    transform: scale(1.02);
+    transform: scale(1.03);
+    font-weight: 600;
+    box-shadow: 0px 4px 12px var(--shadow-color);
 }
 
 /* Pricing Icons */
@@ -102,45 +111,61 @@
     content: "🏆 ";
 }
 
-/* Call-to-Action Button */
+/* Call-to-Action Section */
 .table-cta {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background-color: var(--table-header-bg);
+    border-radius: 0px 0px 12px 12px;
 }
 
+/* CTA Button */
 .cta-button {
     display: inline-block;
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-size: 1.2rem;
-    padding: 12px 20px;
+    font-size: 1.3rem;
+    padding: 14px 24px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: transform 0.3s ease-in-out, background-color 0.3s;
+    box-shadow: 0px 5px 12px var(--shadow-color);
 }
 
 /* Hover Effect for CTA Button */
 .cta-button:hover {
     background: #e6c300; /* Slightly darker gold */
-    transform: scale(1.05);
+    transform: scale(1.07);
+    box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .pricing-comparison {
-        max-width: 90%;
-        padding: 3rem 1rem;
+        max-width: 95%;
+        padding: 3rem 1.5rem;
     }
 
     .pricing-table th, .pricing-table td {
-        font-size: 1rem;
-        padding: 10px;
+        font-size: 1.1rem;
+        padding: 12px;
     }
 
     .cta-button {
-        font-size: 1rem;
-        padding: 10px 15px;
+        font-size: 1.1rem;
+        padding: 12px 18px;
     }
 }
