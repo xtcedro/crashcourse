@@ -49,7 +49,7 @@ body {
 
 /* Hero Heading */
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--secondary-color);
     text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.7);
@@ -57,7 +57,7 @@ body {
 
 /* Hero Paragraph */
 .hero p {
-    font-size: 1.2rem;
+    font-size: 2rem;
     max-width: 600px;
     margin: 10px auto;
 }
