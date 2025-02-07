@@ -23,6 +23,76 @@ body {
     flex-direction: column;
 }
 
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    padding: 7rem 1rem 3rem; /* Increased top padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to right, #001F3F, #003366);
+    color: var(--text-light);
+    box-shadow: inset 0px 0px 50px rgba(255, 215, 0, 0.2);
+    animation: fadeInBackground 1.5s ease-in-out;
+}
+
+/* Hero Heading */
+.hero h1 {
+    font-size: 5rem; /* Increased size */
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-shadow: 0px 0px 20px rgba(255, 215, 0, 1), 
+                 0px 0px 40px rgba(255, 215, 0, 0.8), 
+                 0px 0px 60px rgba(255, 215, 0, 0.6);
+    animation: glowEffect 1.5s infinite alternate, fadeIn 2s ease-out;
+}
+
+/* Hero Paragraph */
+.hero p {
+    font-size: 2.2rem; /* Slightly increased */
+    max-width: 700px;
+    margin: 15px auto;
+    opacity: 0;
+    animation: fadeIn 2.5s ease-out forwards;
+}
+
+/* Keyframe Animations */
+@keyframes glowEffect {
+    from {
+        text-shadow: 0px 0px 20px rgba(255, 215, 0, 1),
+                     0px 0px 40px rgba(255, 215, 0, 0.8),
+                     0px 0px 60px rgba(255, 215, 0, 0.6);
+    }
+    to {
+        text-shadow: 0px 0px 30px rgba(255, 215, 0, 1),
+                     0px 0px 50px rgba(255, 215, 0, 0.9),
+                     0px 0px 70px rgba(255, 215, 0, 0.7);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* Hero Banner */
 .hero-banner {
