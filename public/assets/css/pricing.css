@@ -12,15 +12,6 @@
     --table-row-dark: #e2e3e5;
 }
 
-/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    margin: 0;
-    padding: 0;
-}
-
 /* Fade-in Animation */
 .fade-in {
     opacity: 0;

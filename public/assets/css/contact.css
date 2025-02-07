@@ -11,15 +11,6 @@
     --border-color: #FFD700;
 }
 
-/* General Page Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    margin: 0;
-    padding: 0;
-}
-
 /* Contact Information Section */
 .contact-info {
     background: var(--background-light);

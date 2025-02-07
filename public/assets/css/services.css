@@ -12,16 +12,6 @@
     --border-color: #FFD700; /* Gold */
 }
 
-/* General Page Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--background-dark);
-    color: var(--text-light);
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
 /* Services List */
 .services-list {
     background: var(--service-bg);
