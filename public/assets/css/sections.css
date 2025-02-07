@@ -1,0 +1,114 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Color Variables */
+:root {
+    --primary-color: #001F3F; /* Dark Blue */
+    --secondary-color: #FFD700; /* Gold */
+    --text-light: #ffffff;
+    --text-dark: #222222;
+    --background-light: #F8F9FA; /* Light Gray */
+}
+
+/* About Section */
+.about-section {
+    background: var(--background-light);
+    color: var(--text-dark);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--secondary-color); /* Gold left border for style */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Section Header */
+.about-section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Section Paragraph */
+.about-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Contact List */
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* List Items */
+.about-section li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Links */
+.about-section a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Link Hover Effect */
+.about-section a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-section {
+        max-width: 95%;
+        padding: 1.8rem 1.2rem;
+        border-left: 4px solid var(--secondary-color); /* Adjust border size */
+    }
+
+    .about-section h2 {
+        font-size: 1.7rem;
+    }
+
+    .about-section p,
+    .about-section li {
+        font-size: 1.1rem;
+        word-break: break-word; /* Prevents email/text overflow */
+    }
+
+    .about-section li {
+        flex-direction: column; /* Stack items for better mobile display */
+        align-items: flex-start;
+    }
+
+    .about-section a {
+        font-size: 1.1rem;
+    }
+}
