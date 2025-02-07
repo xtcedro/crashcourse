@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    const hero = document.querySelector(".hero");
     const heroBanner = document.querySelector(".hero-banner");
 
-    if (heroBanner) {
-        heroBanner.classList.add("visible");
-    }
+    if (hero) hero.classList.add("visible");
+    if (heroBanner) heroBanner.classList.add("visible");
 });
