@@ -12,50 +12,56 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = userInput.value.trim();
         if (!message) return;
 
-        // Append user message
         appendMessage("user", "You", message);
         userInput.value = "";
 
         try {
-            // Open a streaming connection to the server
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message }),
             });
 
-            // Handle response stream
+            if (!response.ok) throw new Error("Failed to connect to AI service.");
+
+            // Read streaming response
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
             let botMessage = "";
 
-            // Append an empty bot message container
             const botMessageElement = appendMessage("bot", "Gemini ✨", "");
 
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
 
-                // Decode chunk and process
                 const chunk = decoder.decode(value, { stream: true });
                 const lines = chunk.split("\n");
 
                 for (let line of lines) {
                     if (line.startsWith("data: ")) {
-                        const data = JSON.parse(line.replace("data: ", ""));
-                        if (data.text) {
-                            botMessage += data.text;
-                            botMessageElement.querySelector(".bot-text").innerHTML = botMessage;
+                        try {
+                            const data = JSON.parse(line.replace("data: ", ""));
+                            if (data.text) {
+                                botMessage += data.text;
+                                botMessageElement.querySelector(".bot-text").innerHTML = botMessage;
+                            }
+                        } catch (jsonError) {
+                            console.warn("Skipping invalid JSON chunk:", line);
                         }
                     }
                 }
             }
+
+            // Ensure no error message is shown if response is successful
+            document.querySelectorAll(".error-message").forEach(el => el.remove());
+
         } catch (error) {
+            console.error("AI Streaming Error:", error);
             appendMessage("error", "Error", "AI service is unavailable.");
         }
     }
 
-    // Function to append messages dynamically
     function appendMessage(type, sender, message) {
         const messageHTML = document.createElement("div");
         messageHTML.className = `${type}-message`;
