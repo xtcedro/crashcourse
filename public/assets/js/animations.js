@@ -1,6 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
+export function initAnimations() {
     const fadeElements = document.querySelectorAll(".fade-in");
+    const hero = document.querySelector(".hero");
+    const heroBanner = document.querySelector(".hero-banner");
 
+    // Intersection Observer for fade-in elements
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -8,15 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 observer.unobserve(entry.target); // Stop observing once animated
             }
         });
-    }, { threshold: 0.5 }); // Triggers when 50% of the element is in view
+    }, { threshold: 0.5 }); // Trigger when 50% is visible
 
     fadeElements.forEach(el => observer.observe(el));
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const hero = document.querySelector(".hero");
-    const heroBanner = document.querySelector(".hero-banner");
-
+    // Directly add animation class for hero section on load
     if (hero) hero.classList.add("visible");
     if (heroBanner) heroBanner.classList.add("visible");
-});
+}
