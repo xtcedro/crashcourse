@@ -12,51 +12,59 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = userInput.value.trim();
         if (!message) return;
 
+        // Append user message
         appendMessage("user", "You", message);
         userInput.value = "";
 
         try {
+            // Open a streaming connection to the server
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message }),
             });
 
-            if (!response.ok) throw new Error("Failed to fetch response");
-
+            // Handle response stream
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
             let botMessage = "";
 
-            appendMessage("bot", "Gemini ✨", ""); // Create empty bot message
+            // Append an empty bot message container
+            const botMessageElement = appendMessage("bot", "Gemini ✨", "");
 
             while (true) {
-                const { value, done } = await reader.read();
+                const { done, value } = await reader.read();
                 if (done) break;
 
-                const textChunk = decoder.decode(value, { stream: true });
-                botMessage += textChunk;
+                // Decode chunk and process
+                const chunk = decoder.decode(value, { stream: true });
+                const lines = chunk.split("\n");
 
-                updateLastMessage("bot", botMessage); // Stream update
+                for (let line of lines) {
+                    if (line.startsWith("data: ")) {
+                        const data = JSON.parse(line.replace("data: ", ""));
+                        if (data.text) {
+                            botMessage += data.text;
+                            botMessageElement.querySelector(".bot-text").innerHTML = botMessage;
+                        }
+                    }
+                }
             }
         } catch (error) {
-            console.error("Streaming error:", error);
-            appendMessage("error", "Error", "⚠️ AI service unavailable.");
+            appendMessage("error", "Error", "AI service is unavailable.");
         }
     }
 
+    // Function to append messages dynamically
     function appendMessage(type, sender, message) {
-        const messageElement = document.createElement("div");
-        messageElement.className = `${type}-message`;
-        messageElement.innerHTML = `<b>${sender}:</b> <span class="message-content">${message}</span>`;
-        chatBox.appendChild(messageElement);
+        const messageHTML = document.createElement("div");
+        messageHTML.className = `${type}-message`;
+        messageHTML.innerHTML = `
+            <span class="${type}-label">${sender}:</span>
+            <div class="${type}-text">${message}</div>
+        `;
+        chatBox.appendChild(messageHTML);
         chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    function updateLastMessage(type, newText) {
-        const lastMessage = chatBox.querySelector(`.${type}-message .message-content`);
-        if (lastMessage) {
-            lastMessage.textContent = newText; // Update message dynamically
-        }
+        return messageHTML;
     }
 });
