@@ -15,7 +15,7 @@ export function setupNavigation() {
                 <ul class="nav-links">
                     <li><a href="index.html">🏠 Home</a></li>
                     <li><a href="about.html">🧑‍💻 About Us</a></li>
-                    <li><a href="appointment-booker.html">📅 Book Appointment</a></li>
+                    <li><a href="crashcourse.html">📚 Crash Course</a></li>
                     <li><a href="chatbot.html">🤖 AI Chatbot</a></li>
                     <li><a href="services.html">🛠️ Services</a></li>
                     <li><a href="contact.html">📬 Contact</a></li>
