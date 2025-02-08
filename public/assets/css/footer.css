@@ -1,24 +1,30 @@
 /* Footer Styling */
 footer {
-    background: linear-gradient(to right, #001F3F, #003366); /* Dark Blue Gradient */
+    background: linear-gradient(to right, #001F3F, #003366); /* Elegant Dark Blue Gradient */
     color: #FFD700; /* Gold Text */
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1.5rem;
     font-size: 1rem;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.3);
+    border-top: 3px solid #FFD700; /* Subtle gold accent */
+    position: relative;
 }
 
 /* Footer Content */
 .footer-content {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Footer Text */
 .footer-content p {
     margin: 10px 0;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.9;
 }
 
 /* Legal Links */
@@ -26,7 +32,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     margin-top: 15px;
 }
 
@@ -35,14 +41,33 @@ footer {
     color: #FFD700; /* Gold */
     text-decoration: none;
     font-size: 1rem;
-    font-weight: 600;
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    font-weight: 700;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out, transform 0.2s;
 }
 
 /* Hover Effect */
 .legal-links a:hover {
     color: #FFF;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 1);
+    transform: translateY(-2px);
+}
+
+/* Footer Icons */
+.footer-icons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icons a {
+    color: #FFD700;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.footer-icons a:hover {
+    color: #FFF;
+    transform: scale(1.1);
 }
 
 /* Responsive Design */
@@ -54,6 +79,10 @@ footer {
     .legal-links {
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 12px;
+    }
+
+    .footer-icons {
+        justify-content: center;
     }
 }
