@@ -7,40 +7,28 @@
     --secondary-color: #FFD700; /* Gold */
     --text-light: #ffffff;
     --text-dark: #222222;
-    --background-dark: #0F172A; /* Deep Dark Blue */
-    --chat-bg: #1E293B; /* Chat Container */
-    --user-bubble: #2563EB; /* User Message */
-    --bot-bubble: #374151; /* Bot Message */
+    --background-dark: #0F172A; /* Dark theme background */
+    --chat-bg: #1E293B; /* Chat container background */
+    --user-bubble: #2563EB; /* User message bubble */
+    --bot-bubble: #374151; /* Bot message bubble */
     --input-bg: #1F2937;
     --border-color: #4B5563;
 }
 
-/* General Page Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background: var(--background-dark);
-    color: var(--text-light);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-}
 
 /* Chat Container */
 .chat-container {
-    width: 50%;
+    width: 60%;
     height: 75vh;
+    margin: 10px auto;
     background: var(--chat-bg);
+    color: var(--text-light);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin-top: 20px;
 }
 
 /* Chat Box */
@@ -55,13 +43,14 @@ body {
 }
 
 /* Chat Bubbles */
-.user-message, .bot-message {
-    padding: 12px 16px;
-    margin: 8px 0;
+.user-message, .bot-message, .error-message {
+    padding: 14px 18px;
+    margin: 10px 0;
     border-radius: 18px;
     max-width: 75%;
     word-wrap: break-word;
-    font-size: 1.1rem;
+    display: inline-block;
+    font-size: 1.2rem;
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -86,74 +75,205 @@ body {
     max-width: 75%;
     word-wrap: break-word;
     font-size: 1.1rem;
-}
-
-/* Input Section */
-.input-container {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 14px;
-    background: var(--input-bg);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+    flex-direction: column;
 }
 
-/* Input Field */
-input {
-    flex: 1;
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    background: transparent;
-    color: var(--text-light);
-    outline: none;
-}
-
-/* Placeholder */
-input::placeholder {
-    color: var(--border-color);
-}
-
-/* Send Button */
-button {
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    font-size: 1rem;
-    padding: 14px 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+/* Bot Label */
+.bot-label {
+    background: rgba(255, 215, 0, 0.2);
+    color: var(--secondary-color);
     font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-}
-
-/* Hover Effect */
-button:hover {
-    background: #e6c300;
-    transform: scale(1.05);
-}
-
-/* Typing Effect */
-.typing-effect::after {
-    content: "|";
+    padding: 6px 10px;
+    border-radius: 8px;
     display: inline-block;
-    animation: blink 1s infinite;
+    margin-bottom: 5px;
 }
 
-/* Typing Animation */
-@keyframes blink {
-    50% {
+/* Bot Text */
+.bot-text {
+    background: var(--bot-bubble);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Markdown Styling Inside Bot Messages */
+.bot-message strong {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.bot-message em {
+    font-style: italic;
+}
+
+.bot-message code {
+    background: #222;
+    color: var(--secondary-color);
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.bot-message pre {
+    background: #222;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: monospace;
+}
+
+.bot-message blockquote {
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 12px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+
+
+
+/* Development Notice - Professional & Elegant */
+.development-notice {
+    text-align: center;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.25), rgba(255, 215, 0, 0.15));
+    color: var(--secondary-color);
+    padding: 18px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 25px auto;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-left: 6px solid var(--secondary-color);
+    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.3);
+    animation: fadeInSlide 1s ease-in-out;
+}
+
+/* Smooth Fade-in & Slide Animation */
+@keyframes fadeInSlide {
+    from {
         opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Fade-in Animation */
+/* Feedback Section */
+.feedback {
+    text-align: center;
+    padding: 20px;
+}
+
+.feedback p {
+    font-size: 1.1rem;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: transform 0.3s, background 0.3s;
+    margin-top: 15px;
+}
+
+.cta-button:hover {
+    background: #e6c300;
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Send Button - Modern & Professional */
+button {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ffcc00 100%);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    padding: 16px 22px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* Hover & Active Effects */
+button:hover {
+    background: linear-gradient(135deg, #e6c300 0%, #ffdb4d 100%);
+    transform: scale(1.08);
+    box-shadow: 0px 6px 14px rgba(255, 215, 0, 0.5);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 3px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Input Section - Sleek & Modern */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--input-bg) 0%, #2c3e50 100%);
+    border-radius: 14px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.input-container:hover {
+    box-shadow: 0px 6px 12px rgba(255, 215, 0, 0.4);
+}
+
+/* Input Field - Smooth & Elegant */
+input {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background: transparent;
+    color: var(--text-light);
+    outline: none;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Placeholder Styling - Subtle Elegance */
+input::placeholder {
+    color: rgba(255, 215, 0, 0.7);
+    font-style: italic;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Placeholder Fade Effect */
+input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -165,13 +285,26 @@ button:hover {
 @media (max-width: 1024px) {
     .chat-container {
         width: 80%;
-        height: 70vh;
+        height: 75vh;
     }
 }
 
 @media (max-width: 768px) {
     .chat-container {
         width: 90%;
-        height: 65vh;
+        height: 70vh;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    .development-notice {
+        font-size: 0.85rem;
+        padding: 10px;
     }
 }
