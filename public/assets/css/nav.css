@@ -135,7 +135,7 @@
 
 /* Sidebar Hidden State */
 .sidebar.hidden {
-    left: -300px;
+    left: -100%;
 }
 
 /* Overlay Effect */
