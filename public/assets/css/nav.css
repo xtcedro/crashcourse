@@ -30,6 +30,7 @@
     justify-content: space-between;
     box-shadow: var(--shadow);
     z-index: 1000;
+	border-bottom: 7px solid var(--secondary-color);
 }
 
 /* Hamburger Menu */
@@ -160,4 +161,3 @@
 .no-scroll {
     overflow: hidden;
 }
-
