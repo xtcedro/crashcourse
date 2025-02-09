@@ -126,6 +126,46 @@ textarea {
     box-shadow: 0px 6px 18px rgba(255, 215, 0, 0.5);
 }
 
+/* Response Message */
+.response-message {
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    font-size: 1.1rem;
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Success Message */
+.response-message.success {
+    background-color: #28a745; /* Green */
+    color: #ffffff;
+    border-left: 5px solid #218838;
+}
+
+/* Error Message */
+.response-message.error {
+    background-color: #dc3545; /* Red */
+    color: #ffffff;
+    border-left: 5px solid #c82333;
+}
+
+/* Info Message */
+.response-message.info {
+    background-color: #ffc107; /* Yellow */
+    color: #222222;
+    border-left: 5px solid #e0a800;
+}
+
+/* Fade-in Effect */
+.response-message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* View Appointments Button */
 .view-appointments {
     display: block;
