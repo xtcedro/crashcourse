@@ -337,3 +337,36 @@ input:focus::placeholder {
     font-size: 1.1rem;
     line-height: 1.5;
 }
+
+/* Chatbot Message Styling */
+.bot-message {
+    background: #1e293b; /* Dark Blue Background */
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 12px;
+    max-width: 90%;
+    word-wrap: break-word;
+    margin: 10px 0;
+    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.3);
+    border-left: 4px solid #FFD700; /* Gold Left Border */
+}
+
+/* User Message Styling */
+.user-message {
+    background: #FFD700; /* Gold */
+    color: #00274D; /* Dark Blue */
+    padding: 14px;
+    border-radius: 12px;
+    max-width: 90%;
+    word-wrap: break-word;
+    margin: 10px 0;
+    box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.3);
+    border-right: 4px solid #00274D; /* Dark Blue Right Border */
+}
+
+/* Sender Label */
+.bot-label, .user-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
