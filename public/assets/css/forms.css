@@ -99,14 +99,7 @@ textarea {
     min-height: 120px;
 }
 
-/* Response Message */
-.response-message {
-    padding: 12px;
-    font-weight: bold;
-    border-radius: 6px;
-    display: none;
-    text-align: center;
-}
+
 
 /* Buttons */
 .btn {
