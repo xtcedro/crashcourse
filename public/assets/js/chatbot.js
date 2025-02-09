@@ -37,7 +37,7 @@ export function initializeChatbot() {
 
         const senderLabel = document.createElement("span");
         senderLabel.classList.add(`${type}-label`);
-        senderLabel.innerHTML = `${sender}:`;
+        senderLabel.textContent = `${sender}:`;
 
         const messageText = document.createElement("div");
         messageText.classList.add(`${type}-text`);
