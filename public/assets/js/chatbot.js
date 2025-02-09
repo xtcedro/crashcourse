@@ -98,6 +98,6 @@ export function initializeChatbot() {
         .replace(/([a-z])([A-Z])/g, "$1 $2") // Add space before uppercase words (fixes missing spaces)
         .replace(/•\s*(.*?)/g, "<li>$1</li>")  // Convert bullet points into list items
         .replace(/(Overview|Key Features|Benefits):/g, "<b>$1:</b>"); // Bold important sections
-}
+    }
     fetchIntroduction();
 }
