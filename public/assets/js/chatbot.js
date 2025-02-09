@@ -10,8 +10,8 @@ export function initializeChatbot() {
 
     sendButton.addEventListener("click", sendMessage);
     userInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault(); // Prevent new line
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent accidental form submission
             sendMessage();
         }
     });
@@ -33,11 +33,11 @@ export function initializeChatbot() {
 
     function appendMessage(type, sender, message, isTypingEffect = false) {
         const messageContainer = document.createElement("div");
-        messageContainer.classList.add(`${type}-message`, "fade-in");
+        messageContainer.classList.add(`${type}-message`);
 
         const senderLabel = document.createElement("span");
         senderLabel.classList.add(`${type}-label`);
-        senderLabel.textContent = `${sender}:`;
+        senderLabel.innerHTML = `${sender}:`;
 
         const messageText = document.createElement("div");
         messageText.classList.add(`${type}-text`);
@@ -45,7 +45,7 @@ export function initializeChatbot() {
         messageContainer.appendChild(senderLabel);
         messageContainer.appendChild(messageText);
         chatBox.appendChild(messageContainer);
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll
+        chatBox.scrollTop = chatBox.scrollHeight;
 
         if (isTypingEffect) {
             simulateTypingEffect(message, messageText);
@@ -58,7 +58,7 @@ export function initializeChatbot() {
         let index = 0;
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = message;
-        const textContent = tempDiv.textContent || tempDiv.innerText;
+        const textContent = tempDiv.textContent || tempDiv.innerText; // Extract pure text
 
         function typeCharacter() {
             if (index < textContent.length) {
