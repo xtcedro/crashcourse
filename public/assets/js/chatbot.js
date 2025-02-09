@@ -22,7 +22,7 @@ export function initializeChatbot() {
             });
 
             const data = await response.json();
-            appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", data.reply, true);
+            appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(data.reply), true);
         } catch (error) {
             console.error("Error fetching AI introduction:", error);
         }
@@ -47,7 +47,7 @@ export function initializeChatbot() {
         if (isTypingEffect) {
             simulateTypingEffect(message, messageText);
         } else {
-            messageText.innerHTML = message;
+            messageText.innerHTML = formatMessage(message);
         }
     }
 
@@ -78,10 +78,17 @@ export function initializeChatbot() {
             });
 
             const data = await response.json();
-            appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", data.reply, true);
+            appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(data.reply), true);
         } catch (error) {
             appendMessage("error", "Error", "AI service is currently unavailable.");
         }
+    }
+
+    function formatMessage(message) {
+        return message
+            .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")  // Convert **text** to <b>text</b>
+            .replace(/\n/g, "<br>")  // Convert new lines to <br>
+            .replace(/\* (.*?)/g, "• $1");  // Convert bullet points
     }
 
     fetchIntroduction();
