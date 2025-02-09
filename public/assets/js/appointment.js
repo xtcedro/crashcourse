@@ -1,51 +1,55 @@
 export const API_BASE_URL = window.location.origin.includes('localhost')
-    ? 'http://localhost:3000'
-    : 'https://www.domingueztechsolutions.com';
+  ? 'http://localhost:3000'
+  : 'https://www.domingueztechsolutions.com';
 
-export async function fetchAppointments() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/appointments`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        });
+// Function to handle form submission
+export function handleAppointmentFormSubmission() {
+  document.getElementById('appointmentForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent page reload
 
-        if (!response.ok) {
-            throw new Error(`HTTP Error! Status: ${response.status}`);
-        }
+    // Collect form data
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      service: document.getElementById('service').value.trim(),
+      message: document.getElementById('message').value.trim(),
+    };
 
-        const appointments = await response.json();
-        const appointmentsContainer = document.getElementById('appointments-container');
-        appointmentsContainer.innerHTML = '';
+    console.log('Collected Form Data:', formData);
 
-        if (appointments.length === 0) {
-            appointmentsContainer.innerHTML = '<p class="no-appointments">No appointments found. 📅</p>';
-            return;
-        }
-
-        appointments.forEach((appointment) => {
-            const appointmentCard = document.createElement('div');
-            appointmentCard.className = 'appointment-card';
-
-            // Format the created_at timestamp
-            const formattedDate = new Date(appointment.created_at).toLocaleString();
-
-            appointmentCard.innerHTML = `
-                <h3>👤 ${appointment.name}</h3>
-                <p><strong>📧 Email:</strong> ${appointment.email}</p>
-                <p><strong>📞 Phone:</strong> ${appointment.phone}</p>
-                <p><strong>📅 Booked On:</strong> ${formattedDate}</p>
-                <p><strong>🛠️ Service:</strong> ${appointment.service || 'Service not specified.'}</p>
-                <p><strong>💬 Details:</strong> ${appointment.message || 'No additional details provided.'}</p>
-            `;
-
-            appointmentsContainer.appendChild(appointmentCard);
-        });
-    } catch (error) {
-        const appointmentsContainer = document.getElementById('appointments-container');
-        appointmentsContainer.innerHTML = `<p class="error-message">Error fetching appointments: ${error.message}</p>`;
-        console.error('Error fetching appointments:', error);
+    // Validate form data
+    if (!formData.name || !formData.phone || !formData.email || !formData.service) {
+      showResponseMessage('All fields are required.', 'error');
+      return;
     }
+
+    // Send data to backend
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/appointments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const message = await response.text();
+      if (response.ok) {
+        showResponseMessage(message || 'Appointment booked successfully!', 'success');
+        document.getElementById('appointmentForm').reset();
+      } else {
+        showResponseMessage(`Error: ${message || 'Failed to book the appointment.'}`, 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showResponseMessage('Failed to connect to the server.', 'error');
+    }
+  });
 }
 
-// Auto-fetch when the page loads
-document.addEventListener('DOMContentLoaded', fetchAppointments);
+// Function to display response messages
+export function showResponseMessage(message, type) {
+  const responseMessage = document.getElementById('responseMessage');
+  responseMessage.textContent = message;
+  responseMessage.className = `response-message ${type}`;
+  responseMessage.style.display = 'block';
+}
