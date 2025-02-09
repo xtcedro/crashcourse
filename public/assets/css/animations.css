@@ -8,3 +8,19 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Glowing Effect */
+.glow-effect {
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.6); /* Initial glow */
+    animation: glowing 1.5s infinite alternate ease-in-out;
+}
+
+/* Glow Animation */
+@keyframes glowing {
+    0% {
+        box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0px 0px 25px rgba(255, 215, 0, 0.9);
+    }
+}
