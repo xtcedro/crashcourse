@@ -3,7 +3,7 @@ export const API_BASE_URL = window.location.origin.includes('localhost')
   : 'https://www.domingueztechsolutions.com';
 
 // Function to handle form submission
-export function handleAppointmentFormSubmission() {
+export function submitAppointments() {
   document.getElementById('appointmentForm').addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent page reload
 
