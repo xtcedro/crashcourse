@@ -97,11 +97,6 @@
     border-radius: 8px;
 }
 
-
-
-
-
-
 /* Development Notice - Professional & Elegant */
 .development-notice {
     text-align: center;
@@ -255,26 +250,6 @@ input:focus::placeholder {
     .chat-container {
         width: 80%;
         height: 75vh;
-    }
-}
-
-@media (max-width: 768px) {
-    .chat-container {
-        width: 90%;
-        height: 70vh;
-    }
-
-    input {
-        font-size: 1rem;
-    }
-
-    button {
-        font-size: 1rem;
-    }
-
-    .development-notice {
-        font-size: 0.85rem;
-        padding: 10px;
     }
 }
 
