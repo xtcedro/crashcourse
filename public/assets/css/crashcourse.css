@@ -120,3 +120,53 @@ p, li {
         padding: 10px 16px;
     }
 }
+
+/* About the Instructor Section */
+.about-instructor {
+    background: linear-gradient(to right, #001F3F, #003366); /* Dark Blue Gradient */
+    color: #FFD700; /* Gold Text */
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.3);
+    border-left: 6px solid #FFD700;
+}
+
+/* Section Header */
+.about-instructor h2 {
+    font-size: 2.2rem;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+/* Paragraph Styling */
+.about-instructor p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Bold Text Styling */
+.about-instructor b {
+    color: #FFF; /* White for contrast */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-instructor {
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+
+    .about-instructor h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-instructor p {
+        font-size: 1.1rem;
+    }
+}
