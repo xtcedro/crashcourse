@@ -1,9 +1,12 @@
 export function setupNavigation() {
     const navbar = document.querySelector(".navbar");
 
-    // Insert HTML for the sticky navigation bar
+    // Insert HTML for the sticky navigation bar with a title
     navbar.innerHTML = `
         <div class="menu-container">
+            <div class="navbar-title">
+                <h1>Dominguez Tech Solutions</h1>
+            </div>
             <button class="hamburger-menu" id="menu-toggle" aria-label="Open navigation">
                 ☰
             </button>
