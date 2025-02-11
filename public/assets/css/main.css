@@ -188,3 +188,55 @@ body {
         font-size: 1.1rem;
     }
 }
+
+/* CTA Button with Revolving Glow */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ffcc00 100%);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 14px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
+}
+
+/* Glowing Border Animation */
+.cta-button::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 12px;
+    border: 3px solid transparent;
+    background: linear-gradient(135deg, transparent, rgba(255, 215, 0, 0.8), transparent);
+    animation: glowRotate 2.5s linear infinite;
+}
+
+/* Keyframes for Rotating Glow Effect */
+@keyframes glowRotate {
+    0% {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Hover Effect - Scale & Glow */
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 14px rgba(255, 215, 0, 0.6);
+}
