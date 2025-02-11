@@ -188,23 +188,3 @@ body {
         font-size: 1.1rem;
     }
 }
-
-.cta-button {
-    display: flex;  /* Use flexbox */
-    justify-content: center;  /* Center horizontally */
-    align-items: center;  /* Center vertically */
-    text-align: center;  /* Ensure text alignment */
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: transform 0.3s ease-in-out, background 0.3s;
-    margin-top: 15px;
-    border: 2px solid var(--secondary-color);
-    width: fit-content; /* Prevents button from stretching */
-    min-width: 150px; /* Ensures button has enough space */
-    height: 50px; /* Adjust height as needed */
-}
