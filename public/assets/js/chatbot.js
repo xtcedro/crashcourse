@@ -93,11 +93,10 @@ export function initializeChatbot() {
 
     function formatMessage(message) {
     return message
-        .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")  // Convert **bold** text
+        .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")  // Convert **bold** to <b>bold</b>
         .replace(/\n/g, "<br>")  // Convert new lines to <br>
-        .replace(/([a-z])([A-Z])/g, "$1 $2") // Add space before uppercase words (fixes missing spaces)
-        .replace(/•\s*(.*?)/g, "<li>$1</li>")  // Convert bullet points into list items
-        .replace(/(Overview|Key Features|Benefits):/g, "<b>$1:</b>"); // Bold important sections
+        .replace(/\* (.*?)/g, "• $1")  // Convert bullet points
+        .replace(/(.*?)(.*?)/g, '<a href="$2" target="_blank">$1</a>'); // Convert [text](url) to <a> tag
     }
     fetchIntroduction();
 }
