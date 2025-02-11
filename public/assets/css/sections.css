@@ -155,7 +155,7 @@
 }
 
 /* CTA Button */
-.sales-pitch.chatbot .cta-button {
+.sales-pitch.chatbot {
     display: inline-block;
     background: #FFD700;
     color: #001F3F;
@@ -169,7 +169,7 @@
 }
 
 /* CTA Button Hover */
-.sales-pitch.chatbot .cta-button:hover {
+.sales-pitch.chatbot {
     background: #e6c300;
     transform: scale(1.08);
 }
