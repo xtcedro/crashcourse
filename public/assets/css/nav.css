@@ -33,6 +33,35 @@
 	border-bottom: 7px solid var(--secondary-color);
 }
 
+/* Navbar Layout */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Container for Menu and Title */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between menu and title */
+}
+
+/* Title Styling */
+.nav-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nav-title {
+        font-size: 1.2rem; /* Reduce size on smaller screens */
+    }
+}
+
 /* Hamburger Menu */
 .hamburger-menu {
     font-size: 2rem;
