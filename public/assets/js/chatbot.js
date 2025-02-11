@@ -92,11 +92,12 @@ export function initializeChatbot() {
     }
 
     function formatMessage(message) {
-    return message
-        .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")  // Convert **bold** to <b>bold</b>
-        .replace(/\n/g, "<br>")  // Convert new lines to <br>
-        .replace(/\* (.*?)/g, "• $1")  // Convert bullet points
-        .replace(/(.*?)(.*?)/g, '<a href="$2" target="_blank">$1</a>'); // Convert [text](url) to <a> tag
+        return message
+            .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")  // Convert **bold** to <b>bold</b>
+            .replace(/\n/g, "<br>")  // Convert new lines to <br>
+            .replace(/\* (.*?)/g, "• $1")  // Convert bullet points
+            .replace(/(.*?)(https?:\/\/[^\s]+)/g, '<a href="$2" target="_blank" style="color: #FFD700; text-decoration: underline;">$1</a>'); // Convert [text](url) to clickable link
     }
+
     fetchIntroduction();
 }
