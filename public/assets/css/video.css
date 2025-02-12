@@ -1,0 +1,16 @@
+/* Video Section */
+.video-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.video-container h3 {
+  color: #FFD700;
+}
+
+.video-container video {
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
