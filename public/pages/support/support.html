@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Me</title>
+    <title>Support My Work</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/support.css"> <!-- Separate CSS for support page -->
     <!-- JavaScript Files -->
     <script type="module" src="assets/js/script.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
-        #card-element { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        #donate-button { margin-top: 15px; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
-        #donate-button:disabled { background: gray; cursor: not-allowed; }
-        #payment-message { margin-top: 10px; font-weight: bold; }
-    </style>
 </head>
 <body>
 
-    <h2>Support My Work ❤️</h2>
-    <p>Enter a donation amount and pay securely.</p>
+    <div class="container">
+        <h1>Support My Work ❤️</h1>
+        <p>Your support helps me build more innovative solutions. Every donation counts!</p>
 
-    <form id="donation-form">
-        <input type="number" id="donation-amount" placeholder="Enter amount ($)" min="1" required />
-        <div id="card-element"><!-- Stripe Card Input --></div>
-        <button type="submit" id="donate-button">Donate</button>
-        <p id="payment-message"></p>
-    </form>
+        <form id="donation-form">
+            <label for="donation-amount">Enter Donation Amount ($)</label>
+            <input type="number" id="donation-amount" placeholder="Enter amount" min="1" required />
+
+            <div id="card-element"><!-- Stripe Card Input --></div>
+            
+            <button type="submit" id="donate-button">
+                <span id="button-text">Donate</span>
+                <span class="spinner hidden"></span>
+            </button>
+
+            <p id="payment-message"></p>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Thank You! 🎉</h2>
+            <p>Your support means a lot! Your transaction was successful.</p>
+            <button id="close-modal">Close</button>
+        </div>
+    </div>
 
     <script defer src="assets/js/support.js"></script>
 </body>
