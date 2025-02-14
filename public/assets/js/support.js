@@ -1,4 +1,4 @@
-const stripe = Stripe(""); // Replace with your Stripe Public Key
+const stripe = Stripe("pk_live_51QsBMaB2ZF7d2k3EpiLM1QRwI3s2RL2PJl57Ctkl0tAxouh6kcP9F580Iyo3eW6qVTGix5f6eQdXNHmMgOxyO2Td00KiYFudmT"); // Replace with your Stripe Public Key
 const elements = stripe.elements();
 const cardElement = elements.create("card");
 cardElement.mount("#card-element");
