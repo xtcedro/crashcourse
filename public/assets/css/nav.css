@@ -190,3 +190,80 @@
 .no-scroll {
     overflow: hidden;
 }
+
+/* ✅ Responsive Navigation Bar for Tablets & Mobile */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-title {
+        font-size: 1.3rem;
+    }
+
+    .hamburger-menu {
+        font-size: 1.8rem;
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 280px;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+}
+
+/* ✅ Mobile-Specific Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 12px;
+    }
+
+    .nav-title {
+        font-size: 1.2rem;
+    }
+
+    .hamburger-menu {
+        font-size: 1.6rem;
+        padding: 8px;
+    }
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 8px;
+    }
+}
+
+/* ✅ Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        padding: 6px 10px;
+    }
+
+    .nav-title {
+        font-size: 1rem;
+    }
+
+    .hamburger-menu {
+        font-size: 1.4rem;
+        padding: 6px;
+    }
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+}
