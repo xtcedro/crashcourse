@@ -18,10 +18,11 @@ export function setupNavigation() {
                 <ul class="nav-links">
                     <li><a href="index.html">🏠 Home</a></li>
                     <li><a href="about.html">🧑‍💻 About Us</a></li>
-                    <li><a href="hops.html">🔑H.O.P.S. </a></li>
+                    <li><a href="hops.html">🔑 H.O.P.S. </a></li>
                     <li><a href="crashcourse.html">📚 Crash Course</a></li>
                     <li><a href="chatbot.html">🤖 AI Chatbot</a></li>
                     <li><a href="services.html">🛠️ Services</a></li>
+                    <li><a href="support.html">❤️ Support</a></li>
                     <li><a href="contact.html">📬 Contact</a></li>
                 </ul>
                 <div class="cta-container">
