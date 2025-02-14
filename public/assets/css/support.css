@@ -1,54 +1,87 @@
+/* ✅ Container - Modern, Elegant, and Centered */
 .container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    background: #1e1e1e;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #1b1b1f;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.15);
+    color: white;
+    font-family: 'Poppins', sans-serif;
 }
-
 
 /* ✅ Why Support Section */
 .why-support {
-    background: #252525;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
+    background: linear-gradient(135deg, #252525, #2a2a2e);
+    padding: 18px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 /* ✅ Recent Breakthroughs */
 .recent-innovations {
     text-align: left;
-    background: #292929;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
+    background: linear-gradient(135deg, #292929, #323238);
+    padding: 18px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
 }
 
+/* ✅ Individual Innovation Blocks */
 .innovation {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-left: 4px solid #ffcc00;
+    margin-bottom: 18px;
+    padding: 12px;
+    border-left: 5px solid #ffcc00;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.innovation:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 16px rgba(255, 215, 0, 0.3);
+}
+
+/* ✅ Innovation Titles */
 .innovation h3 {
     color: #ffcc00;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
 }
 
 /* ✅ Stripe Watermark */
 .stripe-watermark {
     text-align: center;
-    margin-top: 20px;
-    opacity: 0.6;
+    margin-top: 25px;
+    opacity: 0.7;
 }
 
 .stripe-watermark img {
-    width: 100px;
+    width: 110px;
     height: auto;
+    filter: brightness(0.8);
 }
 
 .stripe-watermark p {
-    font-size: 12px;
-    color: white;
-    margin-top: 5px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 8px;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .innovation h3 {
+        font-size: 1.2rem;
+    }
+
+    .stripe-watermark img {
+        width: 90px;
+    }
 }
