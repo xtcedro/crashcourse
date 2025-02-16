@@ -1,0 +1,97 @@
+/* Testimonials Section */
+.testimonials {
+    background-color: #0A1931; /* Dark Blue */
+    color: #FFD700; /* Gold */
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 8px;
+}
+
+/* Section Title */
+.testimonials h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #FFD700; /* Gold */
+}
+
+/* Testimonial Box */
+.testimonial {
+    background-color: #132A4D; /* Slightly lighter Dark Blue */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3); /* Gold glow effect */
+}
+
+/* Testimonial Image */
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #FFD700; /* Gold border */
+    margin-bottom: 10px;
+}
+
+/* Testimonial Name */
+.testimonial h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #FFD700; /* Gold */
+}
+
+/* Star Ratings */
+.testimonial p:first-of-type {
+    font-size: 20px;
+}
+
+/* Testimonial Text */
+.testimonial p {
+    font-size: 18px;
+    color: #FFFFFF; /* White for readability */
+    margin-bottom: 10px;
+}
+
+/* Links */
+.testimonial a {
+    display: inline-block;
+    color: #FFD700;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.testimonial a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* Contact Info */
+.testimonial p b {
+    color: #FFD700;
+}
+
+/* Call to Action */
+.cta-container {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background-color: #FFD700; /* Gold */
+    color: #0A1931; /* Dark Blue */
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #FFFFFF;
+    color: #0A1931;
+}
